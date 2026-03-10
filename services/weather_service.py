@@ -59,25 +59,9 @@ class WeatherService:
         except Exception as e:
             return {"error": str(e)}
 
-    def _generate_agronomic_advice(self, temp, humidity, wind, raining):
-        """İçsel mantık: İlaçlama uygun mu?"""
-        reasons = []
-        status = True
 
-        if raining:
-            status = False
-            reasons.append("Şu an yağış var, ilaç yıkanır.")
-        if wind > 15:
-            status = False
-            reasons.append("Rüzgar çok sert, ilaç hedef dışına sürüklenir.")
-        if temp > 30:
-            status = False
-            reasons.append("Yüksek sıcaklık! Bitkide yanma riski var (özellikle kükürt).")
-        if humidity > 85:
-            reasons.append("Nem çok yüksek, mantar hastalığı riski artabilir.")
-
-        return status, " | ".join(reasons) if reasons else "Hava koşulları ilaçlama için ideal."
 
 # Kullanım Örneği:
 # weather = WeatherService()
-# result = weather.get_full_analysis("Düzce")
+
+
