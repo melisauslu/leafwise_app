@@ -33,13 +33,18 @@ class VisionService:
         # Şimdilik simülasyon
         self.model = None
         self.class_names = [
-            "Külleme",
-            "Erken Yanıklık",
-            "Yaprak Lekesi",
-            "Virüs Hastalığı",
-            "Sağlıklı"
+            "Tomato___Bacterial_spot",                        # 0
+            "Tomato___Early_blight",                          # 1
+            "Tomato___healthy",                               # 2  <- Sağlıklı olan artık burada!
+            "Tomato___Late_blight",                           # 3
+            "Tomato___Leaf_Mold",                             # 4
+            "Tomato___Septoria_leaf_spot",                    # 5
+            "Tomato___Spider_mites Two-spotted_spider_mite",  # 6
+            "Tomato___Target_Spot",                           # 7
+            "Tomato___Tomato_mosaic_virus",                   # 8
+            "Tomato___Tomato_Yellow_Leaf_Curl_Virus"          # 9
         ]
-        
+
         print(" Vision Service hazır")
     
     def predict(self, image_bytes: bytes) -> Dict:
@@ -88,4 +93,5 @@ class VisionService:
         }
 
 # Singleton
+
 vision_service = VisionService()
